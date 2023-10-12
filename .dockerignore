@@ -1,0 +1,15 @@
+# node
+node_modules/
+
+# build
+build/
+dist/
+
+# typescript
+tsconfig.tsbuildinfo
+
+# misc
+.dockerignore
+.editorconfig
+.gitignore
+.prettierrc

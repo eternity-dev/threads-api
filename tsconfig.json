@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "buildOptions": {
+    "verbose": true
+  },
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "incremental": true,
+    "lib": ["DOM", "ES2015"],
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "outDir": "./build",
+    "paths": { "@/*": ["./src/*"] },
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES5"
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts"]
+}

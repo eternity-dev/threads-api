@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    expose: [8000]
+    networks: [postgres]
+    ports: ["8000:${APP_PORT}"]
+  database:
+    container_name: database
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_PORT=${DB_PORT}
+    expose: [5432]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+    networks: [adminer, postgres]
+    ports: ["5432:${DB_PORT}"]
+    volumes:
+      - type: volume
+        target: /var/lib/posgtresql/data
+        source: database
+  database_admin:
+    container_name: database_admin
+    image: adminer:latest
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    expose: [8080]
+    networks: [adminer]
+    ports: [8080:2345]
+    volumes:
+      - type: volume
+        target: /var/lib/postgresql/data
+        source: database
+
+networks:
+  adminer:
+  postgres:
+
+volumes:
+  database:

@@ -1,0 +1,9 @@
+{
+  "ext": "ts,js",
+  "execMap": {
+    "js": "bun",
+    "ts": "ts-node"
+  },
+  "ignore": [".git", "node_modules/**/node_modules"],
+  "verbose": true
+}
