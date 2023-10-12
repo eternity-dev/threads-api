@@ -1,4 +1,13 @@
 {
+  "name": "threads-api",
+  "description": "simple rest api replicating threads by instagram",
+  "readme": "https://github.com/eternity-dev/threads-api/blob/main/README.md",
+  "version": "1.0.0",
+  "author": {
+    "email": "ini.dwiii@gmail.com",
+    "name": "Dwi Payana",
+    "url": "https://github.com/eternity-dev"
+  },
   "dependencies": {
     "module-alias": "^2.2.3"
   },
@@ -11,7 +20,13 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eternity-dev/threads-api"
+  },
   "scripts": {
+    "d-up": "docker compose up -d",
+    "d-down": "docker compose down -v",
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "lint": "eslint",
