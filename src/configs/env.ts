@@ -1,5 +1,7 @@
-import { throwIf } from "@/utilities/helper";
+import { Dialect } from "sequelize";
 import dotenv from "dotenv";
+
+import { throwIf } from "@/utilities/helper";
 
 type NodeEnv = "dev" | "development" | "prod" | "production";
 
@@ -25,7 +27,7 @@ export const dbPort = parseInt(process.env.DB_PORT ?? "5432");
 export const dbUsername = process.env.DB_USERNAME ?? "postgres";
 export const dbPassword = process.env.DB_PASSWORD ?? "root";
 export const dbDatabase = process.env.DB_DATABASE!;
-export const dbDialect = process.env.DB_DIALECT!;
+export const dbDialect = process.env.DB_DIALECT! as Dialect;
 export const dbPoolMin = parseInt(process.env.DB_POOL_MIN ?? "0");
 export const dbPoolMax = parseInt(process.env.DB_POOL_MAX ?? "10");
 export const dbPoolAcquire = parseInt(process.env.DB_POOL_ACQUIRE ?? "30000");

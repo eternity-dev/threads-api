@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@types/node": "^20.8.4",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
-    "module-alias": "^2.2.3"
+    "module-alias": "^2.2.3",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
     "eslint": "^8.51.0",
