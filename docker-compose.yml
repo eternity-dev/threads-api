@@ -42,7 +42,7 @@ services:
         restart: true
     expose: [8080]
     networks: [adminer]
-    ports: [8080:2345]
+    ports: [2345:8080]
     volumes:
       - type: volume
         target: /var/lib/postgresql/data
